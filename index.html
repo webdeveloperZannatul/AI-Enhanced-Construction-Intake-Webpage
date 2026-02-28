@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Build | AI-Powered Construction Intake</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        construction: {
+                            yellow: '#FACC15',
+                            dark: '#1F2937',
+                            light: '#F3F4F6',
+                            medium: '#4B5563'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
+        
+        .step-active { border-color: #FACC15; color: #FACC15; }
+        .step-inactive { border-color: #4B5563; color: #9CA3AF; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://www.salvosoftware.com/wp-content/uploads/2025/04/2025-04-09_162900-1.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ai-gradient-text {
+            background: linear-gradient(90deg, #FACC15, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4B5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1F2937; }
+
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hammer text-construction-yellow text-2xl"></i>
+                <span class="text-2xl font-display font-bold text-construction-dark">APEX<span class="text-construction-yellow">BUILD</span></span>
+            </div>
+            <nav class="hidden md:flex gap-8 font-semibold text-construction-dark">
+                <a href="#how-it-works" class="hover:text-construction-yellow transition">Process</a>
+                <a href="#intake" class="hover:text-construction-yellow transition">Start Project</a>
+                <a href="#contact" class="hover:text-construction-yellow transition">Contact</a>
+            </nav>
+            <a href="#intake" class="bg-construction-dark text-white px-6 py-2 rounded-sm font-bold hover:bg-yellow-500 transition transform hover:scale-105">
+                Get Started
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl">
+            <div class="mb-4 inline-block bg-yellow-500/20 border border-yellow-400 text-yellow-400 px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase">
+                AI-Enhanced Construction
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                Start Your Custom <br> <span class="text-construction-yellow">Construction Project</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+                Upload your site details and let our AI generate instant renderings, 
+                accurate cost estimates, and a preliminary proposal tailored to your vision.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#intake" class="bg-construction-yellow text-construction-dark px-8 py-4 rounded-sm text-lg font-bold hover:bg-white transition shadow-lg">
+                    Start Your Project <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#how-it-works" class="border-2 border-white text-white px-8 py-4 rounded-sm text-lg font-bold hover:bg-white hover:text-construction-dark transition">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-bold text-construction-dark mb-4">How The AI System Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our intelligent platform streamlines the traditionally complex intake process into four simple, digital steps.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center group p-6 rounded-xl hover:bg-gray-50 transition border border-transparent hover:border-yellow-100">
+                    <div class="w-16 h-16 bg-construction-dark text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-construction-yellow group-hover:text-construction-dark transition">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Submit Details</h3>
+                    <p class="text-sm text-gray-500">Fill out our comprehensive digital intake form with your vision, requirements, and budget.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center group p-6 rounded-xl hover:bg-gray-50 transition border border-transparent hover:border-yellow-100">
+                    <div class="w-16 h-16 bg-construction-dark text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-construction-yellow group-hover:text-construction-dark transition">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Upload Site</h3>
+                    <p class="text-sm text-gray-500">Upload photos, blueprints, or property documents for our AI to analyze.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center group p-6 rounded-xl hover:bg-gray-50 transition border border-transparent hover:border-yellow-100">
+                    <div class="w-16 h-16 bg-construction-dark text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-construction-yellow group-hover:text-construction-dark transition">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. AI Processing</h3>
+                    <p class="text-sm text-gray-500">Our AI engine generates 3D renderings and calculates cost estimates instantly.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center group p-6 rounded-xl hover:bg-gray-50 transition border border-transparent hover:border-yellow-100">
+                    <div class="w-16 h-16 bg-construction-dark text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-construction-yellow group-hover:text-construction-dark transition">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">4. Receive Proposal</h3>
+                    <p class="text-sm text-gray-500">Get your official proposal, schedule a call, and track your project dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Intake Form -->
+    <section id="intake" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-5xl">
+            
+            <!-- Progress Bar -->
+            <div class="mb-10 flex justify-between items-center relative">
+                <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-300 -z-10 transform -translate-y-1/2"></div>
+                <div class="flex flex-col items-center bg-gray-50 px-2 step-active border-b-4 pb-2" id="step-indicator-1">
+                    <span class="font-bold text-sm">Info</span>
+                </div>
+                <div class="flex flex-col items-center bg-gray-50 px-2 step-inactive border-b-4 pb-2" id="step-indicator-2">
+                    <span class="font-bold text-sm">Project</span>
+                </div>
+                <div class="flex flex-col items-center bg-gray-50 px-2 step-inactive border-b-4 pb-2" id="step-indicator-3">
+                    <span class="font-bold text-sm">Site</span>
+                </div>
+                <div class="flex flex-col items-center bg-gray-50 px-2 step-inactive border-b-4 pb-2" id="step-indicator-4">
+                    <span class="font-bold text-sm">Review</span>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden">
+                <div class="bg-construction-dark p-6 text-white flex justify-between items-center">
+                    <h3 class="text-2xl font-display font-bold">New Project Request</h3>
+                    <span id="form-status" class="text-sm bg-yellow-500 text-black px-3 py-1 rounded-full font-bold">Draft</span>
+                </div>
+
+                <form id="projectForm" class="p-8" onsubmit="return false;">
+                    
+                    <!-- Step 1: Personal Info -->
+                    <div id="step-1" class="step-content fade-in">
+                        <h4 class="text-xl font-bold mb-6 text-construction-dark border-l-4 border-yellow-400 pl-3">Personal Information</h4>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="fullName" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="(555) 123-4567">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Contact Method</label>
+                                <select id="contactMethod" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400">
+                                    <option>Email</option>
+                                    <option>Phone</option>
+                                    <option>Text Message</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <button type="button" onclick="nextStep(2)" class="bg-construction-dark text-white px-8 py-3 rounded font-bold hover:bg-yellow-500 hover:text-black transition">Next Step <i class="fa-solid fa-chevron-right ml-2"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div id="step-2" class="step-content hidden fade-in">
+                        <h4 class="text-xl font-bold mb-6 text-construction-dark border-l-4 border-yellow-400 pl-3">Project Details</h4>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Project Type</label>
+                                <select id="projectType" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400">
+                                    <option value="Home Build">Custom Home Build</option>
+                                    <option value="Renovation">Home Renovation</option>
+                                    <option value="Commercial">Commercial Build</option>
+                                    <option value="Addition">Home Addition</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Budget</label>
+                                <select id="budget" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400">
+                                    <option value="150k-300k">$150,000 - $300,000</option>
+                                    <option value="300k-600k">$300,000 - $600,000</option>
+                                    <option value="600k-1m">$600,000 - $1,000,000</option>
+                                    <option value="1m+">$1,000,000+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Desired Timeline</label>
+                                <select id="timeline" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400">
+                                    <option>Immediately</option>
+                                    <option>3-6 Months</option>
+                                    <option>6-12 Months</option>
+                                    <option>Just Planning</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Project Description</label>
+                            <textarea id="description" rows="4" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="Describe your dream project..."></textarea>
+                        </div>
+                        <div class="flex justify-between mt-6">
+                            <button type="button" onclick="prevStep(1)" class="text-gray-500 font-bold hover:text-black">Back</button>
+                            <button type="button" onclick="nextStep(3)" class="bg-construction-dark text-white px-8 py-3 rounded font-bold hover:bg-yellow-500 hover:text-black transition">Next Step <i class="fa-solid fa-chevron-right ml-2"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Property & Uploads -->
+                    <div id="step-3" class="step-content hidden fade-in">
+                        <h4 class="text-xl font-bold mb-6 text-construction-dark border-l-4 border-yellow-400 pl-3">Property Information</h4>
+                        <div class="grid gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Property Address</label>
+                                <input type="text" id="address" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="123 Construction Lane, City, State">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Lot Size (Acres/SqFt)</label>
+                                    <input type="text" id="lotSize" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400" placeholder="e.g. 0.5 Acres">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Site Accessibility</label>
+                                    <select id="access" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:border-yellow-400">
+                                        <option>Easy Access</option>
+                                        <option>Limited Access</option>
+                                        <option>Rural/Off-road</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Upload Site Photos / Documents</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition relative">
+                                <input type="file" id="fileUpload" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleFileUpload(this)">
+                                <i class="fa-solid fa-cloud-arrow-up text-4xl text-gray-400 mb-3"></i>
+                                <p class="text-gray-500">Drag & drop or click to upload (JPG, PNG, PDF)</p>
+                                <p id="fileName" class="mt-2 text-sm text-green-600 font-bold hidden"></p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between mt-6">
+                            <button type="button" onclick="prevStep(2)" class="text-gray-500 font-bold hover:text-black">Back</button>
+                            <button type="button" onclick="nextStep(4)" class="bg-construction-dark text-white px-8 py-3 rounded font-bold hover:bg-yellow-500 hover:text-black transition">Review Submission</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review & Submit -->
+                    <div id="step-4" class="step-content hidden fade-in">
+                        <h4 class="text-xl font-bold mb-6 text-construction-dark border-l-4 border-yellow-400 pl-3">Review & Generate AI Proposal</h4>
+                        
+                        <div class="bg-gray-100 p-6 rounded mb-6">
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div><strong>Name:</strong> <span id="review-name"></span></div>
+                                <div><strong>Email:</strong> <span id="review-email"></span></div>
+                                <div><strong>Type:</strong> <span id="review-type"></span></div>
+                                <div><strong>Budget:</strong> <span id="review-budget"></span></div>
+                                <div class="md:col-span-2"><strong>Description:</strong> <span id="review-desc"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 mb-6">
+                            <input type="checkbox" id="agree" class="w-5 h-5 text-yellow-500">
+                            <label for="agree" class="text-sm text-gray-600">I agree to the AI processing of my data to generate renderings and estimates.</label>
+                        </div>
+
+                        <div class="flex justify-between mt-6">
+                            <button type="button" onclick="prevStep(3)" class="text-gray-500 font-bold hover:text-black">Back</button>
+                            <button type="button" onclick="submitProject()" class="bg-yellow-500 text-black px-8 py-3 rounded font-bold hover:bg-yellow-400 transition shadow-lg w-full md:w-auto">Generate Proposal <i class="fa-solid fa-wand-magic-sparkles ml-2"></i></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Dashboard / Results (Hidden Initially) -->
+    <section id="dashboard" class="hidden py-20 bg-construction-dark text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex justify-between items-end mb-10 border-b border-gray-700 pb-6">
+                <div>
+                    <h2 class="text-4xl font-display font-bold text-construction-yellow">Project Dashboard</h2>
+                    <p class="text-gray-400 mt-2">AI Analysis Complete for <span id="dash-project-name" class="text-white font-bold"></span></p>
+                </div>
+                <button onclick="window.print()" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-sm"><i class="fa-solid fa-print mr-2"></i>Print Proposal</button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Main Visual -->
+                <div class="md:col-span-2 space-y-8">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+                        <div class="p-4 bg-gray-700 flex justify-between items-center">
+                            <h3 class="font-bold"><i class="fa-solid fa-cube text-yellow-500 mr-2"></i>AI Conceptual Rendering</h3>
+                            <span class="text-xs bg-green-600 px-2 py-1 rounded">95% Match</span>
+                        </div>
+                        <div class="h-96 relative bg-gray-900 flex items-center justify-center overflow-hidden" id="rendering-container">
+                            <!-- Loading State -->
+                            <div id="render-loading" class="text-center">
+                                <i class="fa-solid fa-circle-notch fa-spin text-5xl text-yellow-500 mb-4"></i>
+                                <p class="text-gray-400">Generating 3D Concept...</p>
+                            </div>
+                            <!-- Image Result -->
+                            <img id="rendering-img" src="" alt="AI Rendering" class="hidden w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 text-sm text-gray-400">
+                            <p><i class="fa-solid fa-circle-info mr-2"></i>This is a conceptual visualization based on your inputs. Final designs subject to architectural review.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cost Breakdown -->
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h3 class="font-bold text-xl mb-4 border-l-4 border-yellow-500 pl-3">Estimated Cost Analysis</h3>
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Project Type</span>
+                            <span id="cost-type" class="font-bold text-white"></span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Size / Scope</span>
+                            <span id="cost-size" class="font-bold text-white">Calculating...</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Materials (Est.)</span>
+                            <span id="cost-materials" class="font-bold text-white">Calculating...</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span>Labor & Permits</span>
+                            <span id="cost-labor" class="font-bold text-white">Calculating...</span>
+                        </div>
+                        <div class="border-t border-gray-600 pt-4 flex justify-between items-center text-xl">
+                            <span>Total Estimate</span>
+                            <span id="total-cost" class="text-yellow-500 font-bold text-2xl">---</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2 text-right">*Estimate valid for 30 days</p>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Summary -->
+                    <div class="bg-gray-800 rounded-lg p-6">
+                        <h4 class="font-bold text-lg mb-4">Proposal Summary</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Client:</span>
+                                <span id="summary-name"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Timeline:</span>
+                                <span id="summary-timeline"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Location:</span>
+                                <span id="summary-location"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Status:</span>
+                                <span class="text-green-400 font-bold">Under Review</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-6 bg-white text-construction-dark font-bold py-3 rounded hover:bg-yellow-400 transition">
+                            Schedule Call
+                        </button>
+                    </div>
+
+                    <!-- Chat -->
+                    <div class="bg-gray-800 rounded-lg p-6 h-80 flex flex-col">
+                        <h4 class="font-bold text-lg mb-2">AI Assistant</h4>
+                        <div id="chat-box" class="flex-1 overflow-y-auto bg-gray-900 rounded p-3 mb-3 space-y-2 text-sm">
+                            <div class="text-gray-300"><span class="text-yellow-500 font-bold">AI:</span> Hello! Ask me about your estimate.</div>
+                        </div>
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" placeholder="Type a message..." class="w-full bg-gray-700 border-none rounded px-3 text-white text-sm focus:outline-none">
+                            <button onclick="sendChat()" class="bg-yellow-500 text-black px-3 rounded hover:bg-yellow-400"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Map Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-display font-bold text-construction-dark mb-6">Get In Touch</h2>
+                    <p class="text-gray-600 mb-8">Ready to build? Contact our team directly for a consultation or visit our headquarters.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Headquarters</h4>
+                                <p class="text-gray-600">123 Builder Blvd, Suite 100<br>Construction City, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Phone</h4>
+                                <p class="text-gray-600">(555) 999-BILD</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Email</h4>
+                                <p class="text-gray-600">projects@apexbuild.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                    <!-- Google Map Embed (Placeholder) -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-construction-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">APEX<span class="text-yellow-500">BUILD</span></h3>
+                    <p class="text-gray-400 text-sm">Revolutionizing construction with AI-driven proposals and custom builds.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-yellow-500">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Custom Homes</li>
+                        <li>Commercial</li>
+                        <li>Renovations</li>
+                        <li>AI Design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-yellow-500">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>About Us</li>
+                        <li>Careers</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-yellow-500">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded bg-gray-700 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-gray-700 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-gray-700 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2026 Apex Build Construction. All rights reserved developed by Zannatul.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleChatWidget()" class="bg-yellow-500 text-black w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl hover:scale-110 transition">
+            <i class="fa-solid fa-headset"></i>
+        </button>
+    </div>
+
+    <!-- Full Screen Overlay Loader -->
+    <div id="ai-loader" class="fixed inset-0 bg-black/90 z-50 hidden flex-col items-center justify-center text-white">
+        <i class="fa-solid fa-robot text-6xl text-yellow-500 mb-6 animate-bounce"></i>
+        <h2 class="text-3xl font-display font-bold mb-2">AI is Thinking...</h2>
+        <p class="text-gray-400 max-w-md text-center">Analyzing project parameters, generating renderings, and calculating costs.</p>
+        <div class="w-64 h-2 bg-gray-700 rounded mt-8 overflow-hidden">
+            <div class="h-full bg-yellow-500 animate-loading origin-left"></div>
+        </div>
+    </div>
+
+    <style>
+        .animate-loading {
+            animation: loading 2s ease-in-out infinite;
+        }
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+    </style>
+
+    <script>
+        // State Management
+        let currentStep = 1;
+        
+        // Navigation Functions
+        function nextStep(step) {
+            // Simple Validation
+            if(step === 2 && document.getElementById('fullName').value === '') {
+                alert('Please enter your name'); return;
+            }
+            
+            document.getElementById(`step-${currentStep}`).classList.add('hidden');
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            
+            // Update Indicators
+            document.getElementById(`step-indicator-${currentStep}`).classList.remove('step-active');
+            document.getElementById(`step-indicator-${currentStep}`).classList.add('step-inactive');
+            
+            currentStep = step;
+            
+            document.getElementById(`step-indicator-${currentStep}`).classList.remove('step-inactive');
+            document.getElementById(`step-indicator-${currentStep}`).classList.add('step-active');
+
+            // If entering final step, populate review
+            if(currentStep === 4) populateReview();
+        }
+
+        function prevStep(step) {
+            document.getElementById(`step-${currentStep}`).classList.add('hidden');
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            
+            document.getElementById(`step-indicator-${currentStep}`).classList.remove('step-active');
+            document.getElementById(`step-indicator-${currentStep}`).classList.add('step-inactive');
+            
+            currentStep = step;
+            
+            document.getElementById(`step-indicator-${currentStep}`).classList.remove('step-inactive');
+            document.getElementById(`step-indicator-${currentStep}`).classList.add('step-active');
+        }
+
+        function handleFileUpload(input) {
+            if(input.files && input.files[0]) {
+                const name = input.files[0].name;
+                const display = document.getElementById('fileName');
+                display.textContent = `Selected: ${name}`;
+                display.classList.remove('hidden');
+            }
+        }
+
+        function populateReview() {
+            document.getElementById('review-name').textContent = document.getElementById('fullName').value;
+            document.getElementById('review-email').textContent = document.getElementById('email').value;
+            document.getElementById('review-type').textContent = document.getElementById('projectType').value;
+            document.getElementById('review-budget').textContent = document.getElementById('budget').value;
+            document.getElementById('review-desc').textContent = document.getElementById('description').value;
+        }
+
+        // Submission & AI Simulation
+        function submitProject() {
+            const loader = document.getElementById('ai-loader');
+            loader.classList.remove('hidden');
+            loader.classList.add('flex');
+
+            // Simulate AI Processing Time (3 seconds)
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                loader.classList.remove('flex');
+                
+                // Show Dashboard
+                document.getElementById('dashboard').classList.remove('hidden');
+                document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+                
+                // Populate Dashboard Data
+                const name = document.getElementById('fullName').value;
+                const type = document.getElementById('projectType').value;
+                const budgetVal = document.getElementById('budget').value;
+                const timeline = document.getElementById('timeline').value;
+                const address = document.getElementById('address').value;
+
+                document.getElementById('dash-project-name').textContent = name;
+                document.getElementById('summary-name').textContent = name;
+                document.getElementById('summary-timeline').textContent = timeline;
+                document.getElementById('summary-location').textContent = address;
+                document.getElementById('cost-type').textContent = type;
+
+                // Simulate Cost Calculation
+                let baseCost = 0;
+                if(budgetVal === '150k-300k') baseCost = 225000;
+                if(budgetVal === '300k-600k') baseCost = 450000;
+                if(budgetVal === '600k-1m') baseCost = 800000;
+                if(budgetVal === '1m+') baseCost = 1500000;
+
+                const variance = baseCost * 0.1; // 10% variance
+                const min = (baseCost - variance).toLocaleString('en-US', {style: 'currency', currency: 'USD', maximumSignificantDigits: 3});
+                const max = (baseCost + variance).toLocaleString('en-US', {style: 'currency', currency: 'USD', maximumSignificantDigits: 3});
+                
+                document.getElementById('total-cost').textContent = `${min} - ${max}`;
+                document.getElementById('cost-size').textContent = "Based on typical scope";
+                document.getElementById('cost-materials').textContent = `~${(baseCost * 0.5).toLocaleString('en-US', {style: 'currency', currency: 'USD', notation: "compact"})}`;
+                document.getElementById('cost-labor').textContent = `~${(baseCost * 0.4).toLocaleString('en-US', {style: 'currency', currency: 'USD', notation: "compact"})}`;
+
+                // Simulate Rendering Image Load
+                const renderImg = document.getElementById('rendering-img');
+                const loadingRender = document.getElementById('render-loading');
+                
+                // Random architectural image based on type
+                let imgUrl = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'; // Modern house
+                if(type === 'Commercial') imgUrl = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80';
+                if(type === 'Renovation') imgUrl = 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80';
+
+                // Fake generation delay
+                setTimeout(() => {
+                    loadingRender.classList.add('hidden');
+                    renderImg.src = imgUrl;
+                    renderImg.classList.remove('hidden');
+                }, 1000);
+
+            }, 3000);
+        }
+
+        // Chatbot Logic
+        function toggleChatWidget() {
+            // Just a placeholder to show interaction
+            alert("Opening AI Support Chat...");
+        }
+
+        function sendChat() {
+            const input = document.getElementById('chat-input');
+            const text = input.value;
+            if(!text) return;
+
+            const chatBox = document.getElementById('chat-box');
+            
+            // User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'text-right text-white';
+            userMsg.innerHTML = `<span class="font-bold text-yellow-500 mr-2">You:</span> ${text}`;
+            chatBox.appendChild(userMsg);
+
+            input.value = '';
+
+            // Simulate AI Response
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'text-gray-300';
+                
+                let response = "I'm analyzing your project details to answer that.";
+                if(text.toLowerCase().includes('cost')) response = "Your estimated cost is shown in the main dashboard panel.";
+                if(text.toLowerCase().includes('time')) response = "Based on your timeline, we aim to break ground within 30 days of approval.";
+                if(text.toLowerCase().includes('hello')) response = "Hi there! How can I help with your construction project today?";
+
+                aiMsg.innerHTML = `<span class="text-yellow-500 font-bold">AI:</span> ${response}`;
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
